@@ -30,7 +30,7 @@ const Header = () => {
 						</a>
 						<div className="dropdown-menu" aria-labelledby="navbarDropdown">							
 							<NavLink to="/AboutPage" className="dropdown-item">Mission</NavLink>
-							<a className="dropdown-item" href="#">Vision</a>
+							<a className="dropdown-item" href="/GeneralTesting">GeneralTesting</a>
 							<div className="dropdown-divider"></div>
 							<a className="dropdown-item" href="#">Testimonial</a>
 						</div>
