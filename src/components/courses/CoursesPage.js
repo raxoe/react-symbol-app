@@ -1,7 +1,7 @@
 import React from "react";
 
 //module for Redux
-import { connect } from "react-redux";
+import { connect, useDispatch } from "react-redux";
 import * as courseActions from "../../redux/actions/courseActions";
 import PropTypes from 'prop-types';
 
@@ -11,6 +11,7 @@ import PropTypes from 'prop-types';
 
 class CoursesPage extends React.Component {
 	state = { course: { title: "" } };
+	dispatch = useDispatch();
 
 	//handleChange = this.handleChange.bind(this);
 
@@ -21,7 +22,13 @@ class CoursesPage extends React.Component {
 
 	handleSubmit = event => {
 		event.preventDefault();
-		this.props.dispatch(courseActions.createCourse(this.state.course));
+
+		//old redux
+		//this.props.dispatch(courseActions.createCourse(this.state.course));
+
+
+
+
 	}
 
 	render() {
