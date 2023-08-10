@@ -10,7 +10,10 @@ export const courseSlice = createSlice({
 			console.log(action.payload);
 			// console.log('s', state.courseObj)
 			// console.log('a', action.payload);
-			state.courseObj = [...state.courseObj, { ...action.payload.courseObj }]
+			state.courseObj = [...state.courseObj, { ...action.payload }]
+		},
+		deleteCourse: (state,action)=>{
+			
 		}
 	}
 })

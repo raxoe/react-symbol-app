@@ -16,7 +16,7 @@ function CoursesPage() {
 		event.preventDefault();
 		
 		//console.log('bef', courseState);
-		dispatch(createCourse(_courseObject));
+		dispatch(createCourse(_courseObject.courseObj));
 		//console.log('aft', courseState);
 	}
 
