@@ -12,12 +12,12 @@ import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import configureStore from './redux/configureStore';
 import { Provider as ReduxProvider } from "react-redux";
 
-const store = configureStore();
+// const store = configureStore();
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <ReduxProvider store={store}>
+    <ReduxProvider store={configureStore}>
       <Router>
         <App />
       </Router>

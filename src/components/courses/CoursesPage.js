@@ -1,63 +1,42 @@
-import React from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { createCourse } from "../../redux/features/courseSlice/courseSlice";
 
-//module for Redux
-import { connect, useDispatch } from "react-redux";
-import * as courseActions from "../../redux/actions/courseActions";
-import PropTypes from 'prop-types';
+function CoursesPage() {
 
-// const CoursesPage = () => { return (<h2>Coruses are here</h2>) };
+	let _courseObject = { courseObj: { title: 'Ini' } };
 
+	const courseState = useSelector((state) => state.courseReducer.courseObj);
+	const dispatch = useDispatch();
 
-
-class CoursesPage extends React.Component {
-	state = { course: { title: "" } };
-	dispatch = useDispatch();
-
-	//handleChange = this.handleChange.bind(this);
-
-	handleChange = event => {
-		const course = { ...this.state.course, title: event.target.value };
-		this.setState({ course });
+	const handleChange = (event) => {
+		_courseObject = { courseObj: { title: event.target.value } };		
 	}
 
-	handleSubmit = event => {
+	const handleSubmit = (event) => {
 		event.preventDefault();
-
-		//old redux
-		//this.props.dispatch(courseActions.createCourse(this.state.course));
-
-
-
-
+		
+		//console.log('bef', courseState);
+		dispatch(createCourse(_courseObject));
+		//console.log('aft', courseState);
 	}
 
-	render() {
-		return (
-			<form onSubmit={this.handleSubmit}>
-				<h2>Courses</h2>
-				<h3>Add Courses</h3>
-				<input type="text" onChange={this.handleChange} value={this.state.course.title} />
-				<input type="submit" value="Save" />
-
-				{this.props.courses.map(course=>{
-					<div key={course.title}>{course.title}</div>
-				})}
-
+	return (
+		<div>
+			<form onSubmit={handleSubmit}>
+				<input type="input" onChange={handleChange} value={_courseObject.title}></input>
+				<button>Submit</button>
 			</form>
-		);
-	}
+
+			<div>
+				{
+					courseState.map((course) => {
+						return (<div key={course.title}>{course.title}</div>)
+					})
+				}
+			</div>
+		</div>
+
+	);
 }
 
-CoursesPage.propTypes = {
-	dispatch: PropTypes.func.isRequired
-};
-
-function mapStateToProps(state) {
-	return {
-		courses: state.courses
-	};
-}
-
-export default connect(mapStateToProps)(CoursesPage);
-
-// export default CoursesPage;
+export default CoursesPage;
