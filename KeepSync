@@ -1,0 +1,12 @@
+Keep Sync
+
+• Borken Access Control (consider as Role Management)
+Access control enforces policy => users cannot act outside of their intended permissions.
+Failures will lead to unauthorized info disclosure, modification, destruction of all data or biz func.
+Common access control Vulnerabilities  include :
+-Violation of priciple of least privilege or deny by default => (role/user access should granted for particular capabilities but avaliable to anyone)
+-Modify URL will Bypass the access control => para tampering/browsing to internal app state, html page, attack tool to modify api request
+-Permission(view/edit) with unique identifier(insecure direct obj references)
+-Accessing api with missing access controls for POST,PUT,DELETE
+-Elevation of privilege, acting like user without login or act like admin when logged in as user
+-
