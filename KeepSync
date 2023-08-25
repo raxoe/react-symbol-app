@@ -9,4 +9,13 @@ Common access control Vulnerabilities  include :
 -Permission(view/edit) with unique identifier(insecure direct obj references)
 -Accessing api with missing access controls for POST,PUT,DELETE
 -Elevation of privilege, acting like user without login or act like admin when logged in as user
--
+-Metadata manipulation, e.g tampering JWT, Cookie or hidden field manipulated to elevate privileges or abusing JWT invalidation.
+-CORS misconfiguration, that allow API access from unauthorized/untrusted origins.
+-Force browsing to authenticated page as unauthenticated user or to privileged pages as a standard user.
+
+PREVENTION
+Access Control is only effective in trusted server-side code or server-less api , where attacher canot modify access control check or metadata.
+
+-Except for public resources, deny by default
+-Implement access control mechanisms once and reuse througtout application, including minimizing Cross-Origin Resource Sharing (CORS) usage.
+
