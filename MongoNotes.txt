@@ -1,0 +1,36 @@
+RDBMS		MongoDB
+Database	Database
+Table		Collection
+Tuple/Row	Document
+column		Field
+Table Join	Embedded Documents
+Primary Key	Primary Key (Default key _id provided by MongoDB itself)
+
+========================================
+
+Command:
+
+Show all db :
+show dbs
+
+Use or create db(if not exist) :
+use dbname
+
+To show current selected db :
+db
+
+Add row/tuple to collection/table (inserOne, insertMany, bulkWrite). It will create collection(table) if not exist :
+db.collectionname.insertOne({"fieldname":"value"})
+
+Drop db, will drop selected db, if not drop default testdb :
+db.dropDatabase()
+
+
+-
+Create collection(table)
+db.createCollection("mycollection")
+
+Check existing collections :
+show collections
+
+========================================
